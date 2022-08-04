@@ -25,7 +25,7 @@ $conf = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
    
   $list = $stmt-> fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOexception $ex){          
-        
+
         
         die($ex-> getMessage());
     }  
@@ -56,7 +56,7 @@ include 'header.php';
     <th>Horario</th>
     <th>Administrativo</th>
 
-
+    
 
     
 </tr>
@@ -80,6 +80,9 @@ include 'header.php';
              <option value="miguel"> Miguel</option>
              <option value="Leonardo"> Leonardo </option>
              <option value="Josimar"> Josimar </option> </td>
+        <td>   
+            <a href='edit.php?id=<?php echo $item['id'];?>'>Editar</a>
+        </td>
     </tr>
 <?php } ?>
 </table>
