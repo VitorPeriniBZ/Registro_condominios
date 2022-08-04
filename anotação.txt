@@ -1,0 +1,51 @@
+ Tipos de dados: numericos(inteiro e flutuante), texto e lista.
+Variavel: Armazenar valores. 
+$valor = 11;
+Função: Conjunto de instruções que podem ser reutilizadas.
+  andar ($km){
+  echo "Andando...";
+  return "Andei $km km <hr/>";
+}
+$caixa = andar(3);
+echo $caixa; */
+Condição: Filtro condicional para execução de uma tarefa. 
+ if ($valor >= 10){
+  echo "ok";
+} 
+
+ Loop: Repetição de instruções com base em uma Condição.
+ while ($valor<15){
+  echo "$valor <br/>";
+  $valor += 1; 
+} 
+Classe: Conjunto de atributos e metodos que representam o objeto no mundo real.
+class Douglas{
+  public $camisa;
+  public $bermuda;
+  private $idade; 
+  private function _programar(){} 
+  public function programar(){  
+    $this-> _programar();
+  } 
+}
+  
+return;
+$Douglas = new Douglas();
+$Douglas-> programar(); 
+
+id
+nome_sindico
+nome_condominio
+cnpj
+contato_sindico
+cep
+rua
+bairro
+cidade
+estado
+telefone
+info
+horario
+acompanhamento
+
+
