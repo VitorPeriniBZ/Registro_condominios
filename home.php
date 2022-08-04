@@ -24,7 +24,8 @@ $conf = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
   
    
   $list = $stmt-> fetchAll(PDO::FETCH_ASSOC);
-    }catch(PDOexception $ex){
+    }catch(PDOexception $ex){          
+        
         
         die($ex-> getMessage());
     }  
