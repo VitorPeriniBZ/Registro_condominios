@@ -9,7 +9,8 @@
 $id = $_GET['id'];
 include("config.php")
 ?>
-<?php foreach($list as $item ) {
+<?php 
+    foreach($list as $item ) {
    $nome_condominio = $item['nome_condominio'];
    $nome_sindico =  $item['nome_sindico'];
    $cnpj =  $item['cnpj'];
@@ -56,7 +57,7 @@ include("config.php")
     </div>
     <div class="corpo">
         
-        <form action="upload.php" method="POST">
+        <form action="home.php" method="POST">
             <fieldset>
                 <legend><b>Formulário de Cadastro de Condomínios</b></legend>
                 <br>
@@ -116,11 +117,11 @@ include("config.php")
                 </div>
                 <br><br>
                 <div class="submit">
-                <input type="submit" name="submit" onclick="myFunction()" id="btn_submit">
+                <input type="submit" name="submit" onclick="myFunction()" id="btn_submit" value= Editar>
                 </div>
                 <script>
                 function myFunction() {
-                confirm("Realmente deseja enviar suas informações?");
+                confirm("Deseja alterar suas informações?");
                     }
 </script>
             </fieldset>
