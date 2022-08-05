@@ -5,7 +5,7 @@ body{
 }
 .corpo{
     position: absolute;
-    margin-top: 100px;
+    margin-top: 10px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -14,11 +14,11 @@ body{
     border-radius: 15px;
     width: 30%;
     color: white;
-    max-height: 1000px;
+    max-height: 1100px;
 }
 fieldset{
     border: 3px solid dodgerblue;
-    height: 900px;
+    height: 1000px;
 }
 .corpo_2{
     position: absolute;
@@ -80,7 +80,7 @@ legend{
 }
 
 #btn_submit{
-width: 60%;
+width: 70%;
 background-image: linear-gradient(to right, rgb(0, 92, 220), rgb(90,20,220));
 border: none;
 padding: 12px;
@@ -88,6 +88,7 @@ color: white;
 cursor: pointer;
 font-size: 15px;
 border-radius: 10px;
+
 }
 #btn_submit:hover{
     background-image: linear-gradient(to right, rgb(0,80,172), rgb(80,19,195));

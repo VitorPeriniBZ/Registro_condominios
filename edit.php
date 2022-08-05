@@ -118,11 +118,12 @@ include("config.php")
                 </div>
                 <br><br>
                 <select name="acompanhamento" id="acompanhamento" value="acompanhamento">
-             <option value="s_acomp"> Sem Acompanhamento</option>
-             <option value="nascimento"> Nascimento</option>
-             <option value="miguel"> Miguel</option>
-             <option value="Leonardo"> Leonardo </option>
-             <option value="Josimar"> Josimar </option> 
+                <option value="s_acomp">Sem Acompanhamento</option>
+                <option value="nascimento">Nascimento</option>
+                <option value="miguel"> Miguel</option>
+                <option value="Leonardo">Leonardo </option>
+                <option value="Josimar">Josimar</option> 
+                <br><br>
                 <div class="submit">
                 <input type="submit" name="submit" onclick="myFunction()" id="btn_submit" value= Editar>
                 </div>
