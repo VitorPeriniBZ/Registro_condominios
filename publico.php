@@ -93,6 +93,13 @@
                     <input type="text" name="info" id="info" class="inputUser" required>
                     <label for="info" class="labelInput">O que deseja?</label>
                 </div>
+                <p>Qual serviço voce deseja?</p>
+                <select name="sub" id="sub" value="selecione">
+                    <option value="selecione"> Selecione uma Opção</option>
+                    <option value="com transbordo"> Com transbordo</option>
+                    <option value="fulltime"> Fulltime</option>
+                    <option value="hibrida"> Híbrida </option>
+                    <option value="autonoma"> Autônoma </option> </td>
                 <br><br>
                 <div class="submit">
                 <input type="submit" name="submit" onclick="myFunction()" id="btn_submit">

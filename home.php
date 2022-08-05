@@ -56,7 +56,7 @@ include 'header.php';
     <th>Horario</th>
     <th>Administrativo</th>
 
-    
+
 
     
 </tr>
@@ -73,13 +73,7 @@ include 'header.php';
         <td> <?php echo $item['estado'] ?></td>
         <td> <?php echo $item['info'] ?></td>
         <td> <?php echo $item['horario'] ?></td>
-        <td> <?php echo $item['acompanhamento'] ?>
-            <select name="sub" id="sub" value="red">
-             <option value="s_acomp"> Sem Acompanhamento</option>
-             <option value="nascimento"> Nascimento</option>
-             <option value="miguel"> Miguel</option>
-             <option value="Leonardo"> Leonardo </option>
-             <option value="Josimar"> Josimar </option> </td>
+        <td> <?php echo $item['acompanhamento'] ?></td>
         <td>   
             <a href='edit.php?id=<?php echo $item['id'];?>'>Editar</a>
         </td>

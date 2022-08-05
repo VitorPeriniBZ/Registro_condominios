@@ -50,14 +50,15 @@ include("config.php")
         <span>27</span> <strong>31091020</strong><br>
         <p>Smartech<br>
         Rua Vitória, 359 - Jockey<br
-        Vila Velha - ES</p>
+        Vila Velha - ES </p>
       <br class="clear">
       </div>
         
     </div>
     <div class="corpo">
         
-        <form action="home.php" method="POST">
+        <form action="update.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo $id;?>" />
             <fieldset>
                 <legend><b>Formulário de Cadastro de Condomínios</b></legend>
                 <br>
@@ -116,6 +117,12 @@ include("config.php")
                     <label for="info" class="labelInput">O que deseja?</label>
                 </div>
                 <br><br>
+                <select name="acompanhamento" id="acompanhamento" value="acompanhamento">
+             <option value="s_acomp"> Sem Acompanhamento</option>
+             <option value="nascimento"> Nascimento</option>
+             <option value="miguel"> Miguel</option>
+             <option value="Leonardo"> Leonardo </option>
+             <option value="Josimar"> Josimar </option> 
                 <div class="submit">
                 <input type="submit" name="submit" onclick="myFunction()" id="btn_submit" value= Editar>
                 </div>
