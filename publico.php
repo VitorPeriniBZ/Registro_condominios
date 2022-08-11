@@ -31,7 +31,7 @@
         Vila Velha - ES</p>
       <br class="clear">
       </div>
-        
+      
     </div>
     <div class="corpo">
         
@@ -93,14 +93,17 @@
                     <input type="text" name="info" id="info" class="inputUser" required>
                     <label for="info" class="labelInput">O que deseja?</label>
                 </div>
-                <p>Qual serviço voce deseja?</p>
-                <select name="sub" id="sub" value="selecione">
+                <p>Qual serviço voce deseja?
+                <select name="servico" id="servico" value="servico" required>
                     <option value="selecione"> Selecione uma Opção</option>
                     <option value="com transbordo"> Com transbordo</option>
                     <option value="fulltime"> Fulltime</option>
                     <option value="hibrida"> Híbrida </option>
                     <option value="autonoma"> Autônoma </option> </td>
+
                 <br><br>
+
+
                 <div class="submit">
                 <input type="submit" name="submit" onclick="myFunction()" id="btn_submit">
                 </div>
@@ -180,36 +183,6 @@
 
     </script>
     </head>
-
-    <!-- <body>
-      <form method="POST" action="index.php" id="formulario">
-        
-        <th>Nome do Condomínio:
-        <input type="text" name="nome_condominio" required> <br /> 
-        CNPJ: 
-        <input type="text" name="cnpj" required> <br /> <span>*</span>
-        Contato do condomínio (Sindico/Concelheiro):
-        <input type="text" name="contato_sindico" required> <br /> <span>*</span>
-        Telefone:
-        <input type="text" name="telefone"> <br /> <span>*</span>
-        Cep:
-        <input type="text" name="cep"  id="cep" value="" size="10" maxlength="9" required> <br /> <span>*</span>
-        Rua:
-        <input type="text" name="rua"  id="rua" size="60" required><br /> <span>*</span>
-        Bairro:
-        <input name="bairro" type="text" id="bairro" size="40" required><br /> 
-        Cidade:
-        <input name="cidade" type="text" id="cidade" size="40" /><br /> 
-        Estado:
-        <input name="estado" type="text" id="estado" size="2" /><br /> -->
-        
-
-        <!-- botao de submit: ao clicar, invoca a funcao "enviar" que confirmará e enviará os dados pro PHP -->
-       <!-- <button class="botao" onclick="myFunction()">Enviar</button> -->
-    
-
-      <!-- tudo referente ao formulario, deve estar dentro do contexto do FORM -->
-
       </body>
       </html>
 
