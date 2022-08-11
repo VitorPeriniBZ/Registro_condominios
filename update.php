@@ -6,11 +6,13 @@ $data = $_POST;
 
 try {
     
-
+   
     $dsn = "mysql:host=192.168.3.108; dbname=condominios";
     $conf = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
   
     $conn = new PDO($dsn, "root", "root", $conf);
+
+   
     $stmt = $conn->prepare ("UPDATE informacoes SET
     nome_condominio = :var1,
     cnpj = :var2,
@@ -23,7 +25,9 @@ try {
     telefone = :var9,
     nome_sindico = :var10,
     info = :var11,
-    horario_alterado = :var13
+    horario_alterado = :var13,
+    pessoas = :var15,
+    servico = :var16
     WHERE id = :var14");
     
 
@@ -40,7 +44,9 @@ try {
             "var10"=> $data['nome_sindico'],
             "var11"=> $data['info'],
             "var13"=> date('Y-m-d H:i:s'),
-            "var14"=> $data['id']
+            "var14"=> $data['id'],
+            "var15" => $data['pessoas'],
+            "var16"=> $data['servico']
           ]);
             
             

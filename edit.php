@@ -2,10 +2,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro </title>
+    <title>Editar Informações </title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    
 <?php 
+error_reporting(E_ALL);
+ini_set("display_errors",1 );
 $id = $_GET['id'];
 include("config.php")
 ?>
@@ -23,8 +26,8 @@ include("config.php")
    $telefone =  $item['telefone'];
    $info =  $item['info'];
    $horario =  $item['horario'];
-   $acompanhamento =  $item['acompanhamento'];
-
+   $pessoas =  $item['pessoas'];
+   $servico = $item['servico'];
 }
 
 ?>
@@ -50,7 +53,7 @@ include("config.php")
         <span>27</span> <strong>31091020</strong><br>
         <p>Smartech<br>
         Rua Vitória, 359 - Jockey<br
-        Vila Velha - ES </p>
+        Vila Velha - ES>
       <br class="clear">
       </div>
         
@@ -116,21 +119,40 @@ include("config.php")
                     <input type="text" name="info" id="info" class="inputUser" value="<?php echo $info;?>">
                     <label for="info" class="labelInput">O que deseja?</label>
                 </div>
-                <br><br>
-                <select name="acompanhamento" id="acompanhamento" value="acompanhamento">
-                <option value="s_acomp">Sem Acompanhamento</option>
-                <option value="nascimento">Nascimento</option>
-                <option value="miguel"> Miguel</option>
-                <option value="Leonardo">Leonardo </option>
-                <option value="Josimar">Josimar</option> 
-                <br><br>
-                <div class="submit">
-                <input type="submit" name="submit" onclick="myFunction()" id="btn_submit" value= Editar>
+            
+                 
+                <p>Qual serviço voce deseja?</p>
+                 <div class="">
+                    <select name="servico">
+                        <option value="selecione" <?=($servico == 'selecione')?'selected':''?> >Selecione uma opção</option>
+                        <option value="com_transbordo" <?=($servico == 'com_transbordo')?'selected':''?> >Com Transbordo</option>
+                        <option value="fulltime" <?=($servico == 'fulltime')?'selected':''?> >Fulltime</option>
+                        <option value="hibrida" <?=($servico == 'hibrida')? 'selected':''?> >Hibrida</option>
+                        <option value="autonoma" <?=($servico == 'autonoma')?'selected':''?> >Autônoma</option>
+                </select>
                 </div>
+
+                <p>Quem vai Administrar?</p>
+                <div class="">
+                    <select name="pessoas">
+                        <option value="selecione" <?=($pessoas == 'selecione')?'selected':''?> >Selecione uma opção</option>
+                        <option value="nascimento" <?=($pessoas == 'nascimento')?'selected':''?> >Nascimento</option>
+                        <option value="miguel" <?=($pessoas == 'miguel')?'selected':''?> >Miguel</option>
+                        <option value="leonardo" <?=($pessoas == 'leonardo')? 'selected':''?> >Leonardo</option>
+                        <option value="josimar" <?=($pessoas == 'josimar')?'selected':''?> >Josimar</option>
+                </select>
+                </div>
+                <br><br>
+
+            <div class="btn_edit">                
+                <input class="choro" id="btn_submit" type="submit" name="submit" value="Voltar" onclick= "window.location.href='home.php'" >
+                <input type="submit" name="submit" onclick="myFunction()" id="btn_submit" value= Editar>
+            </div>
+            
                 <script>
                 function myFunction() {
                 confirm("Deseja alterar suas informações?");
-                    }
+                    } 
 </script>
             </fieldset>
         </form>

@@ -5,7 +5,7 @@ body{
 }
 .corpo{
     position: absolute;
-    margin-top: 10px;
+    margin-top: 15%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -14,11 +14,11 @@ body{
     border-radius: 15px;
     width: 30%;
     color: white;
-    max-height: 1100px;
+    max-height: 140%;
 }
 fieldset{
     border: 3px solid dodgerblue;
-    height: 1000px;
+    height: 100%;
 }
 .corpo_2{
     position: absolute;
@@ -80,7 +80,8 @@ legend{
 }
 
 #btn_submit{
-width: 70%;
+border-top: 100%;
+width: 49%;
 background-image: linear-gradient(to right, rgb(0, 92, 220), rgb(90,20,220));
 border: none;
 padding: 12px;
@@ -97,7 +98,6 @@ border-radius: 10px;
 text-align: center;
 width: 100%;
 border: 100%;
-
 }
 
 .entrar{
@@ -156,8 +156,9 @@ border: 100%;
     border-radius: 10px;
     position: absolute;
     float: right;
-    margin-left: 90%;
-    margin-top: 50%;
+    margin-left: 89%;
+    margin-top: 51%;
+
 }
 
 .contato{
@@ -179,7 +180,7 @@ border: 100%;
     min-height: 80%;
     max-height: 80%;    
     overflow: scroll ;
-    overflow-x: hidden }
+    overflow-x: 10px }
 
 .tabela{
     height: 100%;
@@ -188,6 +189,13 @@ border: 100%;
 .titulo{
     text-align: center;
     width: 100%;
-    height: auto;
-    position: absolute;
+    height: 100%;
+}
+.btn_edit{
+    display:flex;
+    margin-right: 0;    
+}
+
+.botao_descer{
+    margin-right: 100%;
 }

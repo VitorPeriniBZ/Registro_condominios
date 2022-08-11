@@ -2,12 +2,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> </title>
+    <title>Registros de Condominio </title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     </head>
     <body>
-    <?php
+        <?php
 
 error_reporting(E_ALL);
 ini_set("display_errors",1 );
@@ -16,19 +16,20 @@ ini_set("display_errors",1 );
 $dsn = "mysql:host=192.168.3.108; dbname=condominios";
 $conf = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 
-    try{
-  $conn = new PDO($dsn, "root", "root", $conf);
-
-  $stmt = $conn->prepare("SELECT * FROM informacoes ORDER BY `informacoes`.`horario` DESC" );
-  $stmt-> execute();
-  
-   
-  $list = $stmt-> fetchAll(PDO::FETCH_ASSOC);
-    }catch(PDOexception $ex){          
-
-        
-        die($ex-> getMessage());
-    }  
+try{
+    $conn = new PDO($dsn, "root", "root", $conf);
+    
+    $stmt = $conn->prepare("SELECT * FROM informacoes ORDER BY `informacoes`.`horario` ASC " );
+    
+    $stmt-> execute();
+    
+    
+    $list = $stmt-> fetchAll(PDO::FETCH_ASSOC);
+}catch(PDOexception $ex){          
+    
+    
+    die($ex-> getMessage());
+}  
 include 'header.php';
 ?>
 <input class="btn_sair" type="submit" name="submit" value="Sair" onclick= "window.location.href='publico.php'" >
@@ -53,8 +54,10 @@ include 'header.php';
     <th>Cidade</th>
     <th>Estado</th>
     <th>Informações</th>
+    <th>Pedido</th>
     <th>Horario</th>
     <th>Administrativo</th>
+
 
 
 
@@ -72,11 +75,10 @@ include 'header.php';
         <td> <?php echo $item['cidade'] ?></td>
         <td> <?php echo $item['estado'] ?></td>
         <td> <?php echo $item['info'] ?></td>
+        <td> <?php echo $item['servico'] ?></td>
         <td> <?php echo $item['horario'] ?></td>
-        <td> <?php echo $item['acompanhamento'] ?></td>
-        <td>   
-            <a href='edit.php?id=<?php echo $item['id'];?>'>Editar</a>
-        </td>
+        <td> <?php echo $item['pessoas'] ?></td>
+        <td>  <a href='edit.php?id=<?php echo $item['id'];?>'>Editar</a> </td>
     </tr>
 <?php } ?>
 </table>
