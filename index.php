@@ -1,3 +1,5 @@
+
+
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors",1 );
@@ -39,7 +41,7 @@ try {
           "var14"=> $data['id'],
           "var15"=> $data['pessoas'],
           "var16"=> $data['servico'],
-          "var17"=> $data['statu']
+          "var17"=> $data['statu']  
 
         ]);
           
@@ -58,4 +60,3 @@ if (!isset($_SESSION["logado"]) ||$_SESSION["logado"]!= true ) {
   header("Location: home.php");
   return;
 }
-
