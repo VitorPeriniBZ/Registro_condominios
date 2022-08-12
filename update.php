@@ -49,8 +49,7 @@ try {
             "var15" => $data['pessoas'],
             "var16"=> $data['servico'],
             "var17"=> $data['statu']
-
-          ]);
+            ]); 
             
             
             
