@@ -99,7 +99,6 @@
                     <label for="contato_sindico" class="labelInput">Telelefone Do Responsável</label>
                 </div>
                 
-                
                 <p>Qual serviço voce deseja?    
                 <select name="servico" id="servico" value="servico" required>
                     <option value="selecione"> Selecione uma Opção</option>
