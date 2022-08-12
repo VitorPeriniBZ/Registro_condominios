@@ -98,12 +98,8 @@
                     <input type="text" name="contato_sindico" id="contato_sindico" class="inputUser" required>
                     <label for="contato_sindico" class="labelInput">Telelefone Do Responsável</label>
                 </div>
-                <br><br>
-                <div class="inputBox">
-                    <input type="text" name="info" id="info" class="inputUser" required>
-                    <label for="info" class="labelInput">O que deseja?</label>
-                </div>
-
+                
+                
                 <p>Qual serviço voce deseja?    
                 <select name="servico" id="servico" value="servico" required>
                     <option value="selecione"> Selecione uma Opção</option>
@@ -111,8 +107,15 @@
                     <option value="fulltime"> Fulltime</option>
                     <option value="hibrida"> Híbrida </option>
                     <option value="autonoma"> Autônoma </option> </td>
-
+                </select>
                 <br><br>
+                <div class="inputBox">
+                    <input type="text" name="info" id="info" class="inputUser" required>
+                    <label for="info" class="labelInput">O que deseja?</label>
+                </div>
+
+
+            
                 <div class="submit">
                 <input type="submit" name="submit" onclick="myFunction()" id="btn_submit">
                 </div>

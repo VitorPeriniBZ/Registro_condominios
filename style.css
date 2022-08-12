@@ -14,7 +14,7 @@ body{
     border-radius: 15px;
     width: 30%;
     color: white;
-    max-height: 140%;
+    max-height: auto;
 }
 fieldset{
     border: 3px solid dodgerblue;

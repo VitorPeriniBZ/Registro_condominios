@@ -58,7 +58,7 @@ include 'header.php';
     <th>Bairro</th>
     <th>Cidade</th>
     <th>Estado</th>
-    <th>Informações</th>
+    <th>Observações</th>
     <th>Pedido</th>
     <th>Horario</th>
     <th>Administrativo</th>
