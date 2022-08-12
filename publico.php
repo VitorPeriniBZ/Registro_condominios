@@ -40,60 +40,71 @@
                 <legend><b>Formulário de Cadastro de Condomínios</b></legend>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="nome_sindico" id="nome_sindico" class="inputUser" required>
-                    <label for="nome_sindico" class="labelInput">Nome do Sindico</label>
-                </div>
-                <br><br>
-                <div class="inputBox">
                     <input type="text" name="nome_condominio" id="nome_condominio" class="inputUser" required>
                     <label for="nome_condominio" class="labelInput">Nome do Condomínio</label>
                 </div>
                 <br><br>
-                <div class="inputBox">
+                 <div class="inputBox">
                     <input type="text" name="cnpj" id="cnpj" class="inputUser" required>
                     <label for="cnpj" class="labelInput">CNPJ</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="text" name="contato_sindico" id="contato_sindico" class="inputUser" required>
-                    <label for="contato_sindico" class="labelInput">Telelefone Síndico</label>
-                </div>
-                <br><br>
-                <div class="inputBox">
                     <input type="text" name="telefone" id="telefone" class="inputUser" required>
-                    <label for="telefone" class="labelInput">Telelefone Condomínio</label>
+                    <label for="telefone" class="labelInput">Telelefone Condomínio (Opicional)</label>
                 </div>
                 <br><br>
+
+                
+                
+                
                 <div class="inputBox">
                     <input type="text" name="cep" id="cep" class="inputUser" required>
                     <label for="cep" class="labelInput">Cep</label>
                 </div>
                 <br><br>
+                
                 <div class="inputBox">
                     <input type="text" name="rua" id="rua" class="inputUser" required>
                     <label for="rua" class="labelInput">Rua</label>
                 </div>
                 <br><br>
+                
                 <div class="inputBox">
                     <input type="text" name="bairro" id="bairro" class="inputUser" required>
                     <label for="bairro" class="labelInput">Bairro</label>
                 </div>
                 <br><br>
+                
                 <div class="inputBox">
                     <input type="text" name="cidade" id="cidade" class="inputUser" required>
                     <label for="cidade" class="labelInput">Cidade</label>
                 </div>
                 <br><br>
+                
                 <div class="inputBox">
                     <input type="text" name="estado" id="estado" class="inputUser" required>
                     <label for="estado" class="labelInput">Estado</label>
+                </div>
+                <br><br>
+                
+                <div class="inputBox">
+                    <input type="text" name="nome_sindico" id="nome_sindico" class="inputUser" required>
+                    <label for="nome_sindico" class="labelInput">Responsavel pela Solicitação</label>
+                </div>
+                <br><br>
+
+                <div class="inputBox">
+                    <input type="text" name="contato_sindico" id="contato_sindico" class="inputUser" required>
+                    <label for="contato_sindico" class="labelInput">Telelefone Do Responsável</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
                     <input type="text" name="info" id="info" class="inputUser" required>
                     <label for="info" class="labelInput">O que deseja?</label>
                 </div>
-                <p>Qual serviço voce deseja?
+
+                <p>Qual serviço voce deseja?    
                 <select name="servico" id="servico" value="servico" required>
                     <option value="selecione"> Selecione uma Opção</option>
                     <option value="com transbordo"> Com transbordo</option>
@@ -102,8 +113,6 @@
                     <option value="autonoma"> Autônoma </option> </td>
 
                 <br><br>
-
-
                 <div class="submit">
                 <input type="submit" name="submit" onclick="myFunction()" id="btn_submit">
                 </div>

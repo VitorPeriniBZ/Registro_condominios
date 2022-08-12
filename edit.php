@@ -5,7 +5,7 @@
     <title>Editar Informações </title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    
+
 <?php 
 error_reporting(E_ALL);
 ini_set("display_errors",1 );
@@ -28,6 +28,7 @@ include("config.php")
    $horario =  $item['horario'];
    $pessoas =  $item['pessoas'];
    $servico = $item['servico'];
+   $status = $item['statu'];
 }
 
 ?>
@@ -142,13 +143,31 @@ include("config.php")
                         <option value="josimar" <?=($pessoas == 'josimar')?'selected':''?> >Josimar</option>
                 </select>
                 </div>
+               
+                        <p>Status:<p>
+                <div class="">
+                    <select name="statu">
+                        <option value="selecione" <?=($status == 'selecione')?'selected':''?> >Selecione uma opção</option>
+                        <option value="Recebido" <?=($status == 'Recebido')?'selected':''?> >Recebido</option>
+                        <option value="Visitado" <?=($status == 'Visitado')?'selected':''?> >Visitado</option>
+                        <option value="Orcamento_Efetuado" <?=($status == 'Orcamento_Efetuado')? 'selected':''?> >Orçamento Efetuado</option>
+                        <option value="Finalizado" <?=($status == 'Finalizado')?'selected':''?> >Finalizado</option>
+                </select>
+                </div>
                 <br><br>
+       
+
+         
 
             <div class="btn_edit">                
                 <input class="choro" id="btn_submit" type="submit" name="submit" value="Voltar" onclick= "window.location.href='home.php'" >
                 <input type="submit" name="submit" onclick="myFunction()" id="btn_submit" value= Editar>
             </div>
             
+            
+
+
+
                 <script>
                 function myFunction() {
                 confirm("Deseja alterar suas informações?");

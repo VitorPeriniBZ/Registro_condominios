@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registros de Condominio </title>
+    <title>Condominios Finzalizados </title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     </head>
@@ -19,7 +19,7 @@ $conf = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 try{
     $conn = new PDO($dsn, "root", "root", $conf);
     
-    $stmt = $conn->prepare("SELECT * FROM informacoes WHERE statu!='finalizado' ORDER BY `informacoes`.`horario` ASC " );
+    $stmt = $conn->prepare("SELECT * FROM informacoes  WHERE statu='finalizado' " );
     
     $stmt-> execute();
     
@@ -32,16 +32,13 @@ try{
 }  
 include 'header.php';
 ?>
-
-<div class="titulo">
-    <h1><b>Condomínios cadastrados</b></h1>
+ <div class="titulo">
+    <h1><b >Condomínios Finalizados</b></h1>
     </div>
+<input class= "finalizados" type="submit" name="submit" value= "Finalizados" onclick= "window.location.href='home.php'" >
 
-<input class="btn_sair" type="submit" name="submit" value="Sair" onclick= "window.location.href='publico.php'" >
+   
 
-<input class= "finalizados" type="submit" name="submit" value= "Finalizados" onclick= "window.location.href='finalizados.php'" >
-
-    
                 <br>
                 <div class="fundo">
                     <table border= "1" style="border-collapse: collapse; color: white;"class="tabela">
@@ -63,6 +60,7 @@ include 'header.php';
     <th>Horario</th>
     <th>Administrativo</th>
     <th>Status</th>
+
 
 
 
