@@ -19,7 +19,7 @@ $conf = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 try{
     $conn = new PDO($dsn, "root", "root", $conf);
     
-    $stmt = $conn->prepare("SELECT * FROM informacoes  WHERE statu='finalizado' " );
+    $stmt = $conn->prepare("SELECT * FROM informacoes  WHERE statuses='finalizado' " );
     
     $stmt-> execute();
     
@@ -35,7 +35,7 @@ include 'header.php';
  <div class="titulo">
     <h1><b >Condomínios Finalizados</b></h1>
     </div>
-<input class= "finalizados" type="submit" name="submit" value= "Finalizados" onclick= "window.location.href='home.php'" >
+<input class= "finalizados" type="submit" name="submit" value= "Em andamento" onclick= "window.location.href='home.php'" >
 
    
 
@@ -56,8 +56,8 @@ include 'header.php';
     <th>Cidade</th>
     <th>Estado</th>
     <th>Informações</th>
-    <th>Pedido</th>
     <th>Horario</th>
+    <th>Pedido</th>
     <th>Administrativo</th>
     <th>Status</th>
 
@@ -78,10 +78,10 @@ include 'header.php';
         <td> <?php echo $item['cidade'] ?></td>
         <td> <?php echo $item['estado'] ?></td>
         <td> <?php echo $item['info'] ?></td>
-        <td> <?php echo $item['servico'] ?></td>
-        <td> <?php echo $item['horario'] ?></td>
-        <td> <?php echo $item['pessoas'] ?></td>
-        <td> <?php echo $item['statu'] ?></td>
+        <td> <?php echo date("d/m/Y H:m",strtotime($item['horario'])) ?></td>
+        <td> <?php echo $item['servicos'] ?></td>
+        <td> <?php echo $item['users'] ?></td>
+        <td> <?php echo $item['statuses'] ?></td>
 
         <td>  <a href='edit.php?id=<?php echo $item['id'];?>'>Editar</a> </td>
     </tr>

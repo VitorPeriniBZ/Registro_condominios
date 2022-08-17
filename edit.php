@@ -10,10 +10,38 @@
 error_reporting(E_ALL);
 ini_set("display_errors",1 );
 $id = $_GET['id'];
-include("config.php")
-?>
-<?php 
-    foreach($list as $item ) {
+include("config.php");
+try{
+    $stmt = $conn->prepare("SELECT * FROM servicos");
+    $stmt-> execute();
+
+    $servicos = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+    
+
+    $stmt = $conn->prepare("SELECT * FROM statuses");
+    $stmt-> execute();
+
+    $statuses = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+
+    $stmt = $conn->prepare("SELECT * FROM users");
+    $stmt-> execute();
+
+    $users = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+
+    $stmt = $conn->prepare("SELECT * FROM inf_stat_user where id=$id");
+    $stmt-> execute();
+    $inf_stat_user = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+
+
+    $stmt = $conn->prepare("SELECT * FROM informacoes where id=$id");
+    $stmt-> execute();
+    $item = $stmt-> fetch(PDO::FETCH_ASSOC);
+      }catch(PDOexception $ex){               
+          die($ex-> getMessage());
+        }
    $nome_condominio = $item['nome_condominio'];
    $nome_sindico =  $item['nome_sindico'];
    $cnpj =  $item['cnpj'];
@@ -26,11 +54,6 @@ include("config.php")
    $telefone =  $item['telefone'];
    $info =  $item['info'];
    $horario =  $item['horario'];
-   $pessoas =  $item['pessoas'];
-   $servico = $item['servico'];
-   $status = $item['statu'];
-}
-
 ?>
     </head>
 <body>
@@ -122,18 +145,49 @@ include("config.php")
                 </div>
             
                  
-                <p>Qual serviço voce deseja?</p>
+             
                  <div class="">
-                    <select name="servico">
-                        <option value="selecione" <?=($servico == 'selecione')?'selected':''?> >Selecione uma opção</option>
-                        <option value="com_transbordo" <?=($servico == 'com_transbordo')?'selected':''?> >Com Transbordo</option>
-                        <option value="fulltime" <?=($servico == 'fulltime')?'selected':''?> >Fulltime</option>
-                        <option value="hibrida" <?=($servico == 'hibrida')? 'selected':''?> >Hibrida</option>
-                        <option value="autonoma" <?=($servico == 'autonoma')?'selected':''?> >Autônoma</option>
-                </select>
-                </div>
+                 <label >Qual serviço voce deseja?</label> 
 
-                <p>Quem vai Administrar?</p>
+                        <select name="servicos" id="servicos"> 
+                            <option value= "" > Selecione
+                            <?php foreach ($servicos as $res) { ?> 
+                            <option value="<?php echo $res['id'];?>" >
+                                <?php echo $res["name"];?>
+                            </option>
+                            <?php } ?>
+                        </select>
+                </div>
+                <br><br>
+            
+                    <div class="">
+                    <label >Quem vai Administrar?</label> 
+                            
+                            <select name="users" id="users"> 
+                                <option value= "" > Selecione
+                                <?php foreach ($users as $res) { ?> 
+                                <option value="<?php echo $res['id'];?>" >
+                                    <?php echo $res["username"];?>
+                                </option>
+                                <?php } ?>
+                            </select>
+                    </div>
+                    <br><br>
+                    
+                    <div class="">
+                    <label >Status:</label> 
+    
+                            <select name="statuses" id="statuses"> 
+                                <option value= "" > Selecione
+                                <?php foreach ($statuses as $res) { ?> 
+                                <option value="<?php echo $res['id'];?>" >
+                                    <?php echo $res["name"];?>
+                                </option>
+                                <?php } ?>
+                            </select>
+                            <br><br>
+<!--     
+                            <p>Quem vai Administrar?</p>
                 <div class="">
                     <select name="pessoas">
                         <option value="selecione" <?=($pessoas == 'selecione')?'selected':''?> >Selecione uma opção</option>
@@ -141,24 +195,8 @@ include("config.php")
                         <option value="miguel" <?=($pessoas == 'miguel')?'selected':''?> >Miguel</option>
                         <option value="leonardo" <?=($pessoas == 'leonardo')? 'selected':''?> >Leonardo</option>
                         <option value="josimar" <?=($pessoas == 'josimar')?'selected':''?> >Josimar</option>
-                </select>
-                </div>
-               
-                        <p>Status:<p>
-                <div class="">
-                    <select name="statu">
-                        <option value="selecione" <?=($status == 'selecione')?'selected':''?> >Selecione uma opção</option>
-                        <option value="Recebido" <?=($status == 'Recebido')?'selected':''?> >Recebido</option>
-                        <option value="Visitado" <?=($status == 'Visitado')?'selected':''?> >Visitado</option>
-                        <option value="Orcamento_Efetuado" <?=($status == 'Orcamento_Efetuado')? 'selected':''?> >Orçamento Efetuado</option>
-                        <option value="Finalizado" <?=($status == 'Finalizado')?'selected':''?> >Finalizado</option>
-                </select>
-                </div>
-                <br><br>
-       
-
-         
-
+                </select> -->
+                    </div>
             <div class="btn_edit">                
                 <input class="choro" id="btn_submit" type="submit" name="submit" value="Voltar" onclick= "window.location.href='home.php'" >
                 <input type="submit" name="submit" onclick="myFunction()" id="btn_submit" value= Editar>

@@ -210,3 +210,8 @@ border: 100%;
     margin-top: -3%;
     margin-left: 4%;
 }
+
+table td {
+ white-space: nowrap !important;
+ padding: 2px 8px;
+}

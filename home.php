@@ -13,13 +13,12 @@ error_reporting(E_ALL);
 ini_set("display_errors",1 );
 
 
-$dsn = "mysql:host=192.168.3.108; dbname=condominios";
-$conf = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+include("config.php");
 
 try{
     $conn = new PDO($dsn, "root", "root", $conf);
     
-    $stmt = $conn->prepare("SELECT * FROM informacoes WHERE statu!='finalizado' ORDER BY `informacoes`.`horario` ASC " );
+    $stmt = $conn->prepare("SELECT * FROM informacoes ORDER BY `informacoes`.`horario` ASC " );
     
     $stmt-> execute();
     
@@ -80,10 +79,10 @@ include 'header.php';
         <td> <?php echo $item['cidade'] ?></td>
         <td> <?php echo $item['estado'] ?></td>
         <td> <?php echo $item['info'] ?></td>
-        <td> <?php echo $item['servico'] ?></td>
-        <td> <?php echo $item['horario'] ?></td>
-        <td> <?php echo $item['pessoas'] ?></td>
-        <td> <?php echo $item['statu'] ?></td>
+        <td> <?php echo $item['servicos'] ?></td>
+        <td> <?php echo date("d/m/Y H:m",strtotime($item['horario'])) ?></td>
+        <td> <?php echo $item['users'] ?></td>
+        <td> <?php echo $item['statuses'] ?></td>
 
         <td>  <a href='edit.php?id=<?php echo $item['id'];?>'>Editar</a> </td>
     </tr>

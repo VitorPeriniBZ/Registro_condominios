@@ -20,8 +20,8 @@ try {
   
   $conn = new PDO($dsn, "root", "root", $conf);
 
-  $stmt = $conn->prepare("INSERT INTO informacoes (nome_condominio, cnpj, contato_sindico, cep, rua, bairro, cidade, estado, telefone, nome_sindico, info, horario, horario_alterado, id, pessoas, servico, statu)
-          VALUES(:var1, :var2, :var3, :var4, :var5, :var6, :var7, :var8, :var9, :var10, :var11, :var12, :var13, :var14, :var15, :var16, :var17)");
+  $stmt = $conn->prepare("INSERT INTO informacoes (nome_condominio, cnpj, contato_sindico, cep, rua, bairro, cidade, estado, telefone, nome_sindico, info, horario, id, servico)
+          VALUES(:var1, :var2, :var3, :var4, :var5, :var6, :var7, :var8, :var9, :var10, :var11, :var12, :var13, :var14)");
           
           
           $stmt->execute([
@@ -37,11 +37,8 @@ try {
           "var10"=> $data['nome_sindico'],
           "var11"=> $data['info'],
           "var12"=> $data['horario'],
-          "var13"=> $data['horario_alterado'],
-          "var14"=> $data['id'],
-          "var15"=> $data['pessoas'],
-          "var16"=> $data['servico'],
-          "var17"=> $data['statu']  
+          "var13"=> $data['id'],
+          "var14"=> $data['servicos'],
 
         ]);
           
@@ -55,8 +52,8 @@ try {
 // verificar se o usuario está logado
 if (!isset($_SESSION["logado"]) ||$_SESSION["logado"]!= true ) {
   header("Location: publico.php");
-    return;  
+    return;
 } else {
   header("Location: home.php");
-  return;
+  die;
 }

@@ -31,7 +31,15 @@
         Vila Velha - ES</p>
       <br class="clear">
       </div>
-      
+      <?php
+      include("config.php");
+
+    $stmt = $conn->prepare("SELECT * FROM servicos");
+    $stmt-> execute();
+
+    $servicos = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+?>
+    
     </div>
     <div class="corpo">
         
@@ -44,20 +52,19 @@
                     <label for="nome_condominio" class="labelInput">Nome do Condomínio</label>
                 </div>
                 <br><br>
+
                  <div class="inputBox">
                     <input type="text" name="cnpj" id="cnpj" class="inputUser" required>
                     <label for="cnpj" class="labelInput">CNPJ</label>
                 </div>
                 <br><br>
+                
                 <div class="inputBox">
                     <input type="text" name="telefone" id="telefone" class="inputUser" required>
                     <label for="telefone" class="labelInput">Telelefone Condomínio (Opicional)</label>
                 </div>
                 <br><br>
 
-                
-                
-                
                 <div class="inputBox">
                     <input type="text" name="cep" id="cep" class="inputUser" required>
                     <label for="cep" class="labelInput">Cep</label>
@@ -99,15 +106,20 @@
                     <label for="contato_sindico" class="labelInput">Telelefone Do Responsável</label>
                 </div>
                 
-                <p>Qual serviço voce deseja?    
-                <select name="servico" id="servico" value="servico" required>
-                    <option value="selecione"> Selecione uma Opção</option>
-                    <option value="com transbordo"> Com transbordo</option>
-                    <option value="fulltime"> Fulltime</option>
-                    <option value="hibrida"> Híbrida </option>
-                    <option value="autonoma"> Autônoma </option> </td>
-                </select>
+                <div class="">
+                 <label >Qual serviço voce deseja?</label> 
+
+                        <select name="servicos" id="servicos"> 
+                            <option value= "" > Selecione
+                            <?php foreach ($servicos as $res) { ?> 
+                            <option value="<?php echo $res['id'];?>" >
+                                <?php echo $res["name"];?>
+                            </option>
+                            <?php } ?>
+                        </select>
+                </div>
                 <br><br>
+                
                 <div class="inputBox">
                     <input type="text" name="info" id="info" class="inputUser" required>
                     <label for="info" class="labelInput">O que deseja?</label>

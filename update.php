@@ -25,10 +25,7 @@ try {
     telefone = :var9,
     nome_sindico = :var10,
     info = :var11,
-    horario_alterado = :var13,
-    pessoas = :var15,
-    servico = :var16,
-    statu = :var17
+    horario_alterado = :var13
     WHERE id = :var14");
     
 
@@ -46,9 +43,7 @@ try {
             "var11"=> $data['info'],
             "var13"=> date('Y-m-d H:i:s'),
             "var14"=> $data['id'],
-            "var15" => $data['pessoas'],
-            "var16"=> $data['servico'],
-            "var17"=> $data['statu']
+            
             ]); 
             
             
