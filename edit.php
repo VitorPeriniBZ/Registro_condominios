@@ -30,11 +30,6 @@ try{
     $users = $stmt -> fetchAll(PDO::FETCH_ASSOC);
 
 
-    $stmt = $conn->prepare("SELECT * FROM inf_stat_user where id=$id");
-    $stmt-> execute();
-    $inf_stat_user = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-
-
 
     $stmt = $conn->prepare("SELECT * FROM informacoes where id=$id");
     $stmt-> execute();
@@ -54,6 +49,10 @@ try{
    $telefone =  $item['telefone'];
    $info =  $item['info'];
    $horario =  $item['horario'];
+   $servicos_id = $item['servico_id'];
+   $status_id = $item['status_id'];
+   $user_id = $item['user_id'];
+
 ?>
     </head>
 <body>
@@ -149,24 +148,24 @@ try{
                  <div class="">
                  <label >Qual serviço voce deseja?</label> 
 
-                        <select name="servicos" id="servicos"> 
-                            <option value= "" > Selecione
-                            <?php foreach ($servicos as $res) { ?> 
-                            <option value="<?php echo $res['id'];?>" >
-                                <?php echo $res["name"];?>
+                        <select name="servico_id" id="servicos"> 
+                            <option value= "" > Selecione </option>
+                            <?php foreach ($servicos as $res) { ?>
+                            <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $servicos_id) ? "selected":"";?>>  
+                                <?php echo $res["serv"];?>
                             </option>
                             <?php } ?>
                         </select>
                 </div>
-                <br><br>
+                <br><br>    
             
                     <div class="">
                     <label >Quem vai Administrar?</label> 
                             
-                            <select name="users" id="users"> 
-                                <option value= "" > Selecione
+                            <select name="user_id" id="users"> 
+                                <option value= "" > Selecione </option>
                                 <?php foreach ($users as $res) { ?> 
-                                <option value="<?php echo $res['id'];?>" >
+                                    <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $servicos_id) ? "selected":"";?>>  
                                     <?php echo $res["username"];?>
                                 </option>
                                 <?php } ?>
@@ -177,35 +176,22 @@ try{
                     <div class="">
                     <label >Status:</label> 
     
-                            <select name="statuses" id="statuses"> 
-                                <option value= "" > Selecione
+                            <select name="status_id" id="statues"> 
+                                <option value= "" > Selecione </option>
                                 <?php foreach ($statuses as $res) { ?> 
-                                <option value="<?php echo $res['id'];?>" >
-                                    <?php echo $res["name"];?>
+                                    <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $servicos_id) ? "selected":"";?>>  
+                                    <?php echo $res["stat"];?> 
                                 </option>
                                 <?php } ?>
                             </select>
                             <br><br>
-<!--     
-                            <p>Quem vai Administrar?</p>
-                <div class="">
-                    <select name="pessoas">
-                        <option value="selecione" <?=($pessoas == 'selecione')?'selected':''?> >Selecione uma opção</option>
-                        <option value="nascimento" <?=($pessoas == 'nascimento')?'selected':''?> >Nascimento</option>
-                        <option value="miguel" <?=($pessoas == 'miguel')?'selected':''?> >Miguel</option>
-                        <option value="leonardo" <?=($pessoas == 'leonardo')? 'selected':''?> >Leonardo</option>
-                        <option value="josimar" <?=($pessoas == 'josimar')?'selected':''?> >Josimar</option>
-                </select> -->
+                                    
                     </div>
-            <div class="btn_edit">                
+            <div class="btn_edit">
+
                 <input class="choro" id="btn_submit" type="submit" name="submit" value="Voltar" onclick= "window.location.href='home.php'" >
                 <input type="submit" name="submit" onclick="myFunction()" id="btn_submit" value= Editar>
             </div>
-            
-            
-
-
-
                 <script>
                 function myFunction() {
                 confirm("Deseja alterar suas informações?");

@@ -32,8 +32,7 @@ CREATE TABLE `historico`(
     `info_id` int NOT NULL, 
     foreign key (`user_id`) references `users`(`id`),
     foreign key (`info_id`) references `informacoes`(`id`)
-0
-°);
+);
 
 CREATE TABLE `statuses` (
     `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -70,10 +69,12 @@ CREATE TABLE `info_serv` (
     INSERT INTO `users` (`id`, `username`, `password`) VALUES ('3', 'leonardo', '');
     INSERT INTO `users` (`id`, `username`, `password`) VALUES ('4', 'josimar', '');
 
+
     INSERT INTO `statuses` (`id`, `name`) VALUES ('1', 'Recebido');
     INSERT INTO `statuses` (`id`, `name`) VALUES ('2', 'Visitado');
     INSERT INTO `statuses` (`id`, `name`) VALUES ('3', 'Orçamento Efetuado');
     INSERT INTO `statuses` (`id`, `name`) VALUES ('4', 'Finalizado');
+    INSERT INTO `statuses` (`id`, `name`) VALUES ('5', 'Encerrado');
 
 
     INSERT INTO `servicos` (`id`, `name`) VALUES ('1', 'Com Transbordo');

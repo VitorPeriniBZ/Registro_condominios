@@ -15,20 +15,29 @@ ini_set("display_errors",1 );
 
 include("config.php");
 
+
+
 try{
     $conn = new PDO($dsn, "root", "root", $conf);
     
-    $stmt = $conn->prepare("SELECT * FROM informacoes ORDER BY `informacoes`.`horario` ASC " );
-    
+
+    $stmt = $conn->prepare("SELECT * FROM informacoes inf 
+    JOIN servicos ser ON ser.id = inf.servico_id
+    JOIN statuses st ON st.id = inf.status_id
+    JOIN users us ON us.id = inf.user_id
+    ORDER BY horario ASC");
+
+
     $stmt-> execute();
-    
-    
     $list = $stmt-> fetchAll(PDO::FETCH_ASSOC);
+
+
 }catch(PDOexception $ex){          
-    
-    
     die($ex-> getMessage());
 }  
+
+
+
 include 'header.php';
 ?>
 
@@ -38,7 +47,7 @@ include 'header.php';
 
 <input class="btn_sair" type="submit" name="submit" value="Sair" onclick= "window.location.href='publico.php'" >
 
-<input class= "finalizados" type="submit" name="submit" value= "Finalizados" onclick= "window.location.href='finalizados.php'" >
+<!-- <input class= "finalizados" type="submit" name="submit" value= "Finalizados" onclick= "window.location.href='finalizados.php'" > -->
 
     
                 <br>
@@ -58,8 +67,8 @@ include 'header.php';
     <th>Cidade</th>
     <th>Estado</th>
     <th>Observações</th>
-    <th>Pedido</th>
     <th>Horario</th>
+    <th>Pedido</th>
     <th>Administrativo</th>
     <th>Status</th>
 
@@ -68,6 +77,8 @@ include 'header.php';
     
 </tr>
 <?php foreach($list as $item ){ ?>
+
+
     <tr>
         <td> <?php echo $item['nome_condominio'] ?></td>
         <td> <?php echo $item['nome_sindico'] ?></td>
@@ -79,11 +90,11 @@ include 'header.php';
         <td> <?php echo $item['cidade'] ?></td>
         <td> <?php echo $item['estado'] ?></td>
         <td> <?php echo $item['info'] ?></td>
-        <td> <?php echo $item['servicos'] ?></td>
         <td> <?php echo date("d/m/Y H:m",strtotime($item['horario'])) ?></td>
-        <td> <?php echo $item['users'] ?></td>
-        <td> <?php echo $item['statuses'] ?></td>
-
+        <td> <?php echo $item['serv']?></td>
+        <td> <?php echo $item['username'] ?> 
+        <td> <?php echo $item['stat'] ?></td>
+    
         <td>  <a href='edit.php?id=<?php echo $item['id'];?>'>Editar</a> </td>
     </tr>
 <?php } ?>

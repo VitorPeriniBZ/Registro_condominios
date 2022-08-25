@@ -1,8 +1,8 @@
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors",1 );
-
 $data = $_POST;
+// die("<pre>".print_r($data, true)."</pre>" );
 
 try {
     
@@ -25,7 +25,10 @@ try {
     telefone = :var9,
     nome_sindico = :var10,
     info = :var11,
-    horario_alterado = :var13
+    horario_alterado = :var13,
+    servico_id = :var15,
+    status_id = :var16,
+    user_id = :var17
     WHERE id = :var14");
     
 
@@ -43,7 +46,9 @@ try {
             "var11"=> $data['info'],
             "var13"=> date('Y-m-d H:i:s'),
             "var14"=> $data['id'],
-            
+            "var15"=> $data['servico_id'],
+            "var16"=> $data['status_id'],
+            "var17"=> $data['user_id']
             ]); 
             
             

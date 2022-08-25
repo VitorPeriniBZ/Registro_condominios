@@ -37,6 +37,8 @@
     $stmt = $conn->prepare("SELECT * FROM servicos");
     $stmt-> execute();
 
+
+
     $servicos = $stmt -> fetchAll(PDO::FETCH_ASSOC);
 ?>
     
@@ -109,8 +111,8 @@
                 <div class="">
                  <label >Qual serviço voce deseja?</label> 
 
-                        <select name="servicos" id="servicos"> 
-                            <option value= "" > Selecione
+                        <select name="servico_id" id="servicos"> 
+                            <option value= "" > Selecione </option>
                             <?php foreach ($servicos as $res) { ?> 
                             <option value="<?php echo $res['id'];?>" >
                                 <?php echo $res["name"];?>
@@ -126,7 +128,6 @@
                 </div>
 
 
-            
                 <div class="submit">
                 <input type="submit" name="submit" onclick="myFunction()" id="btn_submit">
                 </div>

@@ -1,8 +1,4 @@
-
-
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors",1 );
 
 
 session_start(); 
@@ -17,11 +13,13 @@ $horario = date('Y-m-d H:i:s');
 $data['horario'] = $horario;
 try {
   
+
   
   $conn = new PDO($dsn, "root", "root", $conf);
 
-  $stmt = $conn->prepare("INSERT INTO informacoes (nome_condominio, cnpj, contato_sindico, cep, rua, bairro, cidade, estado, telefone, nome_sindico, info, horario, id, servico)
-          VALUES(:var1, :var2, :var3, :var4, :var5, :var6, :var7, :var8, :var9, :var10, :var11, :var12, :var13, :var14)");
+ 
+  $stmt = $conn->prepare("INSERT INTO informacoes (nome_condominio, cnpj, contato_sindico, cep, rua, bairro, cidade, estado, telefone, nome_sindico, info, horario, id, servico_id, status_id, user_id)
+          VALUES(:var1, :var2, :var3, :var4, :var5, :var6, :var7, :var8, :var9, :var10, :var11, :var12, :var13, :var14, :var15, :var16)");
           
           
           $stmt->execute([
@@ -38,9 +36,10 @@ try {
           "var11"=> $data['info'],
           "var12"=> $data['horario'],
           "var13"=> $data['id'],
-          "var14"=> $data['servicos'],
-
-        ]);
+          "var14"=> $data['servico_id'],
+          "var15"=> $data['status_id'],
+          "var16"=> $data['user_id']
+          ]);
           
           
           
