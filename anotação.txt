@@ -49,3 +49,4 @@ horario
 acompanhamento
 
 
+    $stmt = $conn->prepare("SELECT * FROM informacoes  WHERE statuses='finalizado' " );
