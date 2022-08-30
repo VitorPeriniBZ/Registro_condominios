@@ -33,21 +33,3 @@ return;
 $Douglas = new Douglas();
 $Douglas-> programar(); 
 
-id
-nome_sindico
-nome_condominio
-cnpj
-contato_sindico
-cep
-rua
-bairro
-cidade
-estado
-telefone
-info
-horario
-acompanhamento
-
-
-    $stmt = $conn->prepare("SELECT * FROM informacoes  WHERE statuses='finalizado' " );
-WHERE statuses='finalizado'
