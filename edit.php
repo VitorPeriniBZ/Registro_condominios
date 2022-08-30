@@ -139,7 +139,7 @@ try{
                     <div class="">
                     <label >Qual serviço voce deseja?</label> 
 
-                            <select name="servico_id" id="servicos"> 
+                            <select name="servico_id" id="servicos" required> 
                                 <option value= "" > Selecione </option>
                                 <?php foreach ($servicos as $res) { ?>
                                 <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $servicos_id) ? "selected":"";?>>  
@@ -151,9 +151,9 @@ try{
                     <br><br>    
             
                     <div class="">
-                    <label >Quem vai Administrar?</label> 
+                    <label >Quem vai Administrar?</label > 
                             
-                            <select name="user_id" id="users"> 
+                            <select name="user_id" id="users" required> 
                                 <option value= "" selected> Selecione </option>
                                 <?php foreach ($users as $res) { ?> 
                                     <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $user_id) ? "selected":"";?>>  
@@ -167,7 +167,7 @@ try{
                     <div class="">
                     <label >Status:</label> 
     
-                            <select name="status_id" id="statues"> 
+                            <select name="status_id" id="statues" required> 
                                 <option value= "" > Selecione </option>
                                 <?php foreach ($statuses as $res) { ?> 
                                     <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $status_id) ? "selected":"";?>>  

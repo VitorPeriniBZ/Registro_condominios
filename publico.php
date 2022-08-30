@@ -102,7 +102,7 @@
                 <div class="">
                  <label >Qual serviço voce deseja?</label> 
 
-                        <select name="servico_id" id="servicos"> 
+                        <select name="servico_id" id="servicos" required> 
                             <option value= "" > Selecione </option>
                             <?php foreach ($servicos as $res) { ?> 
                             <option value="<?php echo $res['id'];?>" >

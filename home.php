@@ -23,7 +23,7 @@ try{
     JOIN servicos ser ON ser.id = inf.servico_id
     LEFT JOIN statuses st ON st.id = inf.status_id
     LEFT JOIN users us ON us.id = inf.user_id
-    WHERE status_id !='4'
+    WHERE status_id !='4' or status_id is null
     ORDER BY horario ASC");
 
 
@@ -89,7 +89,7 @@ include 'header.php';
         <td> <?php echo $item['cidade'] ?></td>
         <td> <?php echo $item['estado'] ?></td>
         <td> <?php echo $item['info'] ?></td>
-        <td> <?php echo date("d/m/Y H:m",strtotime($item['horario'])) ?></td>
+        <td> <?php echo date("d/m/Y H:i",strtotime($item['horario'])) ?></td>
         <td> <?php echo $item['serv']?></td>
         <td> <?php echo $item['username'] ?> 
         <td> <?php echo $item['stat'] ?></td>
