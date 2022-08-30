@@ -12,19 +12,18 @@
 error_reporting(E_ALL);
 ini_set("display_errors",1 );
 
-
 include("config.php");
 
 
 
 try{
     $conn = new PDO($dsn, "root", "root", $conf);
-    
 
-    $stmt = $conn->prepare("SELECT * FROM informacoes inf 
+    $stmt = $conn->prepare("SELECT *, inf.id AS inf_id FROM informacoes inf 
     JOIN servicos ser ON ser.id = inf.servico_id
-    JOIN statuses st ON st.id = inf.status_id
-    JOIN users us ON us.id = inf.user_id
+    LEFT JOIN statuses st ON st.id = inf.status_id
+    LEFT JOIN users us ON us.id = inf.user_id
+    WHERE status_id !='4'
     ORDER BY horario ASC");
 
 
@@ -47,7 +46,7 @@ include 'header.php';
 
 <input class="btn_sair" type="submit" name="submit" value="Sair" onclick= "window.location.href='publico.php'" >
 
-<!-- <input class= "finalizados" type="submit" name="submit" value= "Finalizados" onclick= "window.location.href='finalizados.php'" > -->
+<input class="finalizados" type="submit" name="submit" value="Finalizados" onclick= "window.location.href='finalizados.php'" >
 
     
                 <br>
@@ -94,8 +93,9 @@ include 'header.php';
         <td> <?php echo $item['serv']?></td>
         <td> <?php echo $item['username'] ?> 
         <td> <?php echo $item['stat'] ?></td>
+
     
-        <td>  <a href='edit.php?id=<?php echo $item['id'];?>'>Editar</a> </td>
+        <td>  <a href='edit.php?id=<?php echo $item['inf_id'];?>'>Editar</a> </td>
     </tr>
 <?php } ?>
 </table>

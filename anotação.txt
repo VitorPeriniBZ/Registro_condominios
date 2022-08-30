@@ -50,3 +50,4 @@ acompanhamento
 
 
     $stmt = $conn->prepare("SELECT * FROM informacoes  WHERE statuses='finalizado' " );
+WHERE statuses='finalizado'

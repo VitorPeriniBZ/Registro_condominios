@@ -21,16 +21,7 @@
         </div>
         <div class="contato">  
     </form>
-      <section class="col-right">
-      <br>
-        <h3>Fale conosco</h3>
-        <p><a title="Envie um e-mail">tecnologia@smartech.com.br</a><br>
-        <span>27</span> <strong>31091020</strong><br>
-        <p>Smartech<br>
-        Rua Vitória, 359 - Jockey<br>
-        Vila Velha - ES</p>
-      <br class="clear">
-      </div>
+
       <?php
       include("config.php");
 
@@ -45,7 +36,7 @@
     </div>
     <div class="corpo">
         
-        <form action="index.php" method="POST">
+        <form action="save.php" method="POST">
             <fieldset>
                 <legend><b>Formulário de Cadastro de Condomínios</b></legend>
                 <br>
@@ -115,7 +106,7 @@
                             <option value= "" > Selecione </option>
                             <?php foreach ($servicos as $res) { ?> 
                             <option value="<?php echo $res['id'];?>" >
-                                <?php echo $res["name"];?>
+                                <?php echo $res["serv"];?>
                             </option>
                             <?php } ?>
                         </select>

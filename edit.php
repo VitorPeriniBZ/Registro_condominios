@@ -1,4 +1,3 @@
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +8,11 @@
 <?php 
 error_reporting(E_ALL);
 ini_set("display_errors",1 );
-$id = $_GET['id'];
+
+
 include("config.php");
+$id = $_GET['id'];
+
 try{
     $stmt = $conn->prepare("SELECT * FROM servicos");
     $stmt-> execute();
@@ -29,14 +31,13 @@ try{
 
     $users = $stmt -> fetchAll(PDO::FETCH_ASSOC);
 
-
-
     $stmt = $conn->prepare("SELECT * FROM informacoes where id=$id");
     $stmt-> execute();
     $item = $stmt-> fetch(PDO::FETCH_ASSOC);
       }catch(PDOexception $ex){               
           die($ex-> getMessage());
         }
+
    $nome_condominio = $item['nome_condominio'];
    $nome_sindico =  $item['nome_sindico'];
    $cnpj =  $item['cnpj'];
@@ -54,6 +55,7 @@ try{
    $user_id = $item['user_id'];
 
 ?>
+
     </head>
 <body>
     <div class="login">
@@ -70,19 +72,8 @@ try{
         <div class="contato">  
     </form>
       <section class="col-right">
-      <br>
-        <h3>Fale conosco</h3>
-        <p><a title="Envie um e-mail">tecnologia@smartech.com.br</a><br>
-        <span>27</span> <strong>31091020</strong><br>
-        <p>Smartech<br>
-        Rua Vitória, 359 - Jockey<br
-        Vila Velha - ES>
-      <br class="clear">
-      </div>
-        
-    </div>
-    <div class="corpo">
-        
+
+    <div class="corpo">        
         <form action="update.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $id;?>" />
             <fieldset>
@@ -144,28 +135,28 @@ try{
                 </div>
             
                  
-             
-                 <div class="">
-                 <label >Qual serviço voce deseja?</label> 
+                
+                    <div class="">
+                    <label >Qual serviço voce deseja?</label> 
 
-                        <select name="servico_id" id="servicos"> 
-                            <option value= "" > Selecione </option>
-                            <?php foreach ($servicos as $res) { ?>
-                            <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $servicos_id) ? "selected":"";?>>  
-                                <?php echo $res["serv"];?>
-                            </option>
-                            <?php } ?>
-                        </select>
-                </div>
-                <br><br>    
+                            <select name="servico_id" id="servicos"> 
+                                <option value= "" > Selecione </option>
+                                <?php foreach ($servicos as $res) { ?>
+                                <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $servicos_id) ? "selected":"";?>>  
+                                    <?php echo $res["serv"];?>
+                                </option>
+                                <?php } ?>
+                            </select>
+                    </div>
+                    <br><br>    
             
                     <div class="">
                     <label >Quem vai Administrar?</label> 
                             
                             <select name="user_id" id="users"> 
-                                <option value= "" > Selecione </option>
+                                <option value= "" selected> Selecione </option>
                                 <?php foreach ($users as $res) { ?> 
-                                    <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $servicos_id) ? "selected":"";?>>  
+                                    <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $user_id) ? "selected":"";?>>  
                                     <?php echo $res["username"];?>
                                 </option>
                                 <?php } ?>
@@ -179,7 +170,7 @@ try{
                             <select name="status_id" id="statues"> 
                                 <option value= "" > Selecione </option>
                                 <?php foreach ($statuses as $res) { ?> 
-                                    <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $servicos_id) ? "selected":"";?>>  
+                                    <option value="<?php echo $res['id'];?>" <?php echo ($res['id'] == $status_id) ? "selected":"";?>>  
                                     <?php echo $res["stat"];?> 
                                 </option>
                                 <?php } ?>
