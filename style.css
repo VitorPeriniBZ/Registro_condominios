@@ -47,7 +47,7 @@ legend{
     position: relative;
 }
 .inputUser{
-    background: none;
+    background-color: rgb(0, 0, 0);
     border: none;
     border-bottom: 1px solid white;
     outline: none;

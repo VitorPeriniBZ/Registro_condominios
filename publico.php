@@ -1,4 +1,6 @@
-
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +56,7 @@
                 
                 <div class="inputBox">
                     <input type="text" name="telefone" id="telefone" class="inputUser" required>
-                    <label for="telefone" class="labelInput">Telelefone Condomínio (Opicional)</label>
+                    <label for="telefone" class="labelInput">Telelefone Condomínio</label>
                 </div>
                 <br><br>
 
@@ -98,11 +100,12 @@
                     <input type="text" name="contato_sindico" id="contato_sindico" class="inputUser" required>
                     <label for="contato_sindico" class="labelInput">Telelefone Do Responsável</label>
                 </div>
-                
+                <br><br>
+
                 <div class="">
                  <label >Qual serviço voce deseja?</label> 
 
-                        <select name="servico_id" id="servicos" required> 
+                        <select name="servico_id" id="servicos" class="inputUser" required> 
                             <option value= "" > Selecione </option>
                             <?php foreach ($servicos as $res) { ?> 
                             <option value="<?php echo $res['id'];?>" >
