@@ -1,0 +1,15 @@
+O usuario vai colocar 3 Inputs
+Seu Nome
+Seu Peso
+e Sua Altura
+
+valores referentes ao IMC de acordo com www.saudenaosepesa.com.br
+     18.5 = "Peso Pena", abaixo do peso
+     24.9 = "na média", Normal
+     29.9 = "Um pouco a cima do peso, mas ta suave", acima do peso
+     34.9 = "Fordo", Sobrepeso - 1 
+     39.9 = "acima do peso", Sobrepeso - 2 
+     40.0 = "Procura um Cardiologista ai namoral" Sobrepeso - 3
+
+ao clicar o botao "Calcular" ele ira gerar uma cor *aleatoria* e mostrar seu Índice de Massa Corporal (IMC)
+e o nivel de CLASSIFICAÇÃO do grau de obesidade.
